@@ -1,0 +1,52 @@
+.phudz{
+    width: 100%; 
+    background: linear-gradient(rgb(253, 234, 255), rgb(248, 181, 255));
+    height: 600px;
+}
+.creat__form{
+    width: 320px;
+    background-color: rgb(255, 255, 255);
+    height: 450px;
+    position: absolute;
+    right: 450px;
+    top: 120px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px gray;
+}
+.creat__form label{
+    margin: 5px;
+    font-weight: bold;
+    font-size: 13PX;
+}
+.creat__form h1{
+    text-align: center;
+    text-shadow: 0px 0px 4px rgb(0, 0, 0);
+    color: rgb(255, 0, 247);
+}
+.creat__form input{
+    width: 300px;
+    margin: 5px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(170, 1, 182);
+}
+.creatOK{
+    width: 100px;
+    margin: 5px;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+.comeback{
+    margin: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.comeback:hover{
+    color: red;
+}

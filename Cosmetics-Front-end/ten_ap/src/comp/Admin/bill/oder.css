@@ -1,0 +1,59 @@
+.TableOder{
+    width: 98.9%;
+    display: flex;
+    margin-left: 10px;
+    padding-left: 20px;
+    height: 60px;
+    padding: 0px;
+    background-color: white;
+    border: 2px solid rgb(98, 47, 112);
+    border-top: none;
+}
+.oder_item{
+    width: 245px;
+    text-align: center;
+    border-right: 2px solid rgb(98, 47, 112);
+}
+.oder_item>h4{
+    margin-top: 20px;
+}
+.menu_oder2{
+    width: 100%;
+    display: flex;
+    margin-left: 10px;
+    padding-left: 20px; 
+    padding: 0px;
+    background-color: rgb(98, 47, 112);
+    color: white;
+}
+.menu_oder2 >h4{
+    width: 242px;
+    text-align: center;
+    border-right: 2px solid rgb(212, 205, 205);
+    
+}
+.detail{
+    width: 100%;
+    margin: 10px;
+    background-color: white;
+    padding: 10px;
+}
+.detail >h1{
+    text-align: center;
+    color: purple;
+}
+.imgOder{
+    width: 310px;
+}
+.detail_Oder_items{
+    margin: 0px auto;
+    width: 90%;
+}
+.soluong{
+    position: absolute;
+    right: 200px;
+    bottom: 20px;
+}
+.itemsOder_Product> h3{
+    color: red;
+}

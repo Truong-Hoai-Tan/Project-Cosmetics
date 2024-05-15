@@ -1,0 +1,45 @@
+iframe#webpack-dev-server-client-overlay{display:none!important}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+/* Main content */
+main {
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  padding-top: 80px; /* Đảm bảo nội dung không bị che bởi header khi fixed */
+}
+
+/* Footer */
+footer {
+  background-color: #1663ff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  height: 1000px;
+}
+
+button, input, [tabindex] {
+  outline: none;
+  border: none;
+}
+
+/* Thêm class 'fixed' */
+
+
+/* Thêm class 'fixed-margin' */
+.App.fixed-margin main {
+  margin-top: 80px; /* Tăng margin-top của main khi fixed */
+}
+
+.response-success {
+  position: unset !important;
+}
+
