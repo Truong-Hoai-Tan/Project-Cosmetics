@@ -47,7 +47,7 @@ const InforOder = () => {
         <>
              <div className="detail" key={oders?.id}>
              <h1>Chi Tiết Đơn Hàng</h1>
-                 <div className="detail_Oder_items" >
+                <div className="detail_Oder_items" >
                             <h4>Tên Khách Hàng: {oders?.customer_name}</h4>
                             <h4>Số Điện Thoại: {oders?.phone}</h4>
                             <h4>Địa Chỉ Nhận Hàng: {oders?.address}</h4>

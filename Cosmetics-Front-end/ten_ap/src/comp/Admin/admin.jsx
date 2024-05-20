@@ -29,7 +29,6 @@ const Admin = () => {
             <Link to="/">
               {" "}
               <img
-                width={"280px"}
                 src="https://goldidea.vn/upload/123/thiet-ke-logo-the-face-shop.png"
                 alt=""
               />
@@ -130,7 +129,6 @@ const Admin = () => {
         <div className="Sum__right">
           <div className="right__Top">
             <h1 className="admin">ADMIN</h1>
-            <img src="" alt="" />
           </div>
           <div className="right__bottom">
             {" "}

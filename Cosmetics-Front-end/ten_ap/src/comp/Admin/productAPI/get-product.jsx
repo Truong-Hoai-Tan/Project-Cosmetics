@@ -143,12 +143,13 @@ const HomeProduct = () => {
           </Box>
         </Fade>
       </Modal>
-      <div>
+      <div className="get-product-admin">
         <div className="tableProduct">
          <h4>TÊN SẢN PHẨM</h4>
          <h4>HÌNH ẢNH</h4>
          <h4>GIÁ TIỀN</h4>
-         <h3>
+         <h4>DANH MỤC</h4>
+         <h4>
          {" "}
             <input className="SerchJob" type="text" placeholder="Tìm Kiếm Products" onChange={(e) => setTextSeach(e.target.value)} />
             {/* <select className="Selecter" onChange={(e) => setCategory(e.target.value)}>
@@ -158,7 +159,7 @@ const HomeProduct = () => {
                 </option>
               ))}
             </select> */}
-         </h3>
+         </h4>
         </div>
         <div className="products">
           {currentPageData &&
@@ -169,8 +170,7 @@ const HomeProduct = () => {
                   <h4>{item.name}</h4>
                 </div>
                 <div className="product_item">
-                  <img className="productimg" src={item.img} alt=""
-                  />
+                  <img className="product_img" src={item.img} alt=""/>
                 </div>
                 <div className="product_item">
                   <h4>{item.price}</h4>
@@ -184,12 +184,12 @@ const HomeProduct = () => {
                 {/* <div className="product_item">
                   <h4>{item.description}</h4>
                 </div> */}
-                <div className="product_item2">
+                <div className="product_item">
                   <button className="delproduct" onClick={() => handledeleteproduct(item._id)}> 
                   XÓA
                   </button>
                   <button
-                   className="editjob"
+                   className="editproduct"
                     onClick={() => {
                       setItemEdit(item);
                       setOpen(true)
@@ -203,7 +203,7 @@ const HomeProduct = () => {
         </div>
         <div>
           <br></br>
-          <Link className="creatProduct" to="/Admin/CreateProducts">Thêm Sản Phẩm</Link>
+          <Link className="Creataccounts" to="/Admin/CreateProducts">Thêm Sản Phẩm</Link>
           <div>
             <Sweetpagination
               currentPageData={setCurrentPageData}

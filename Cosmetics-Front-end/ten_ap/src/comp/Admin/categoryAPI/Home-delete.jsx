@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './category.css'
+import "./category.css";
 
 import { Link, NavLink } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
@@ -35,25 +35,25 @@ const HomeCategory = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    httpService.patch(`/api/categories/${itemEdit._id}`, { body: itemEdit })
+    httpService
+      .patch(`/api/categories/${itemEdit._id}`, { body: itemEdit })
       .then((data) => {
         setOpen(false);
         setItemEdit(null);
-        setIsReload(!isReload)
-      },
-      )
-  }
+        setIsReload(!isReload);
+      });
+  };
   const getListData = async () => {
     const response = await axios.get("http://localhost:5000/api/categories");
     setData(response.data);
   };
 
   const deleteData = async (id) => {
-    const response = await httpService.delete(
-      `/api/categories/${id}`
-    ).then(data =>{
-      setIsReload(!isReload)
-    })
+    const response = await httpService
+      .delete(`/api/categories/${id}`)
+      .then((data) => {
+        setIsReload(!isReload);
+      });
   };
 
   const creatData = async (data) => {
@@ -106,55 +106,99 @@ const HomeCategory = () => {
           },
         }}
       >
-        <Fade style={{ width: "420px", height: "500px", border: "0px", borderRadius: "5px" }} in={open}>
+        <Fade
+          style={{
+            width: "420px",
+            height: "500px",
+            border: "0px",
+            borderRadius: "5px",
+          }}
+          in={open}
+        >
           <Box sx={style}>
-            <button style={{ margin: "0px" }} onClick={() => setOpen(false)}>x</button>
-            <div className="slog"><h1 className="dis">DANH MỤC</h1></div> <br />
+            <button style={{ margin: "0px" }} onClick={() => setOpen(false)}>
+              x
+            </button>
+            <div className="slog">
+              <h1 className="dis">DANH MỤC</h1>
+            </div>{" "}
+            <br />
             <form className="formedit" onSubmit={handleSubmit}>
               <label className="Boxname">TÊN DANH MỤC</label> <br />
-              <input className="inpedit" type="text" value={itemEdit?.name} onChange={e => setItemEdit({ ...itemEdit, name: e.target.value })} /><br />
-              <label className="Boxname">HÌNH ẢNH</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.img} onChange={e => setItemEdit({ ...itemEdit, img: e.target.value })} /><br />
-              <button className="submitedit" type="submit">SỬA</button>
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.name}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, name: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">HÌNH ẢNH</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.img}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, img: e.target.value })
+                }
+              />
+              <br />
+              <button className="submitedit" type="submit">
+                SỬA
+              </button>
             </form>
           </Box>
         </Fade>
-      </Modal> 
+      </Modal>
       <div className="sumtable">
         <div className="table_Cate">
           <h4>TÊN DANH MỤC</h4>
           <h4>HÌNH ẢNH</h4>
-          <h3>CÀI ĐẶT</h3>
+          <h4>CÀI ĐẶT</h4>
         </div>
-        {data && data.length > 0 && (
-          <div className="HelloCate">
-            {data.map((item) => (
-              <div className="tableCategory">
-              <div className="Cate_item">
-              <h4 className="abc" onClick={() => setItemEdit(item)}>{item.name}</h4>
-              </div>
-              <div className="Cate_item">
-              <img className="categoryimg" src={item.img} alt=""
-                      />
-              </div>
-              <div className="Cate_item">
-              <button className="delCate" onClick={() => handledeleteData(item._id)}>XÓA
-                      </button>
-                      <button 
-                      className="editCate" onClick={() => {
+        <div className="HelloCate">
+          {data && data.length > 0 && (
+            <>
+              {data.map((item) => (
+                <div className="tableCategory">
+                  <div className="Cate_item">
+                    <h4 className="abc" onClick={() => setItemEdit(item)}>
+                      {item.name}
+                    </h4>
+                  </div>
+                  <div className="Cate_item">
+                    <img className="categoryimg" src={item.img} alt="" />
+                  </div>
+                  <div className="Cate_item">
+                    <button
+                      className="delCate"
+                      onClick={() => handledeleteData(item._id)}
+                    >
+                      XÓA
+                    </button>
+                    <button
+                      className="editCate"
+                      onClick={() => {
                         setItemEdit(item);
-                        setOpen(true)
-                      }}>SỬA</button>
-              </div>
-              </div>
-            ))}
-          </div>
-        )}
-
+                        setOpen(true);
+                      }}
+                    >
+                      SỬA
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
       </div>
       <div>
-      <br></br>
-        <Link className="CreatCate" to="/Admin/CreatCategories">Thêm Danh Mục</Link>
+        <br></br>
+        <Link className="Creataccounts" to="/Admin/CreatCategories">
+          Thêm Danh Mục
+        </Link>
       </div>
     </>
   );

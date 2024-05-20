@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import ProductRating from "./5s/review";
 import { FaUser } from "react-icons/fa";
+import { BsCart4 } from "react-icons/bs";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
@@ -62,11 +63,6 @@ const ProductDetail = () => {
       });
   };
   const handleToCart = (id) => {
-    // console.log(item)
-    // console.log({
-    //     "id_product": item._id,
-    //     "quantity": 1
-    // })
     httpService
       .post("/api/carts", {
         body: {
@@ -235,21 +231,25 @@ const ProductDetail = () => {
                   </div>
                 </div>
                 <div className="detail_right_item detail_add">
-                    <button className="detail_add_card" onClick={() => handleAddToCart(product._id)}>
-                      Thêm Giỏ Hàng
-                    </button>
-                    <button className="detail_add_buy" onClick={() => handleToCart(product._id)}>
-                      Mua Ngay
-                    </button>
+                  <button
+                    className="detail_add_card"
+                    onClick={() => handleAddToCart(product._id)}
+                  >
+                    <BsCart4 />
+                    Thêm Giỏ Hàng
+                  </button>
+                  <button
+                    className="detail_add_buy"
+                    onClick={() => handleToCart(product._id)}
+                  >
+                    Mua Ngay
+                  </button>
                 </div>
               </div>
             </div>
-            <div className="status">
-              <h5 className="quantity">{product?.status}</h5>
-            </div>
+            <div className="status_detail">{product?.status}</div>
             <div className="name_comment">
               <h1>Comment Khách Hàng</h1>
-              <hr />
             </div>
             <div className="detail_footer">
               {comments &&
@@ -264,20 +264,19 @@ const ProductDetail = () => {
                     </div>
                   </div>
                 ))}
-            </div>
 
-            <div className="creat_comment">
-              <hr />
               <form onSubmit={handleOnSubmit}>
-                <input
-                  className="inp_comment"
-                  onChange={(e) => setCommentContent(e.target.value)}
-                  value={commentContent}
-                  type="text"
-                />
-                <button className="enter_comment" type="submit">
-                  Enter
-                </button>
+                <div className="create_comment">
+                  <input
+                    className="inp_comment"
+                    onChange={(e) => setCommentContent(e.target.value)}
+                    value={commentContent}
+                    type="text"
+                  />
+                  <button className="enter_comment" type="submit">
+                    Enter
+                  </button>
+                </div>
               </form>
             </div>
           </div>

@@ -158,18 +158,18 @@ const HomeJob = () => {
       </Modal>
       <div>
         <div className="tableJob">
-        <h4>NHIỆM VỤ</h4>
-        <h4>MÔ TẢ</h4>
-        <h4>THỜI GIAN</h4>
-        <h3>{" "}
-            <input className="SerchJob" type="text" placeholder="Tìm Kiếm Jobs " onChange={(e) => setTextSeach(e.target.value)} />
+          <h4>NHIỆM VỤ</h4>
+          <h4>MÔ TẢ</h4>
+          <h4>THỜI GIAN</h4>
+          <h4>{" "}
+          <input className="SerchJob" type="text" placeholder="Tìm Kiếm Jobs " onChange={(e) => setTextSeach(e.target.value)} />
             {/* <select className="Selecter" onChange={(e) => setJob(e.target.value)}>
               {data.map((item) => (
                 <option key={item.id} value={item._id}>
                   {item.username}
                 </option>
               ))}
-            </select> */}</h3>
+            </select> */}</h4>
         </div>
         <div className="jobs">
           {currentPageData &&
@@ -206,7 +206,7 @@ const HomeJob = () => {
             ))}
             <br />
         </div>
-        <Link className="Creatjob" to="/Admin/CreatJob">Thêm Nhiệm Vụ</Link>
+        <Link className="Creataccounts" to="/Admin/CreatJob">Thêm Nhiệm Vụ</Link>
         <div>
         <Sweetpagination
             currentPageData={setCurrentPageData}

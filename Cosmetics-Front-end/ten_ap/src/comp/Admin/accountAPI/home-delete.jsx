@@ -40,15 +40,14 @@ const HomeAccount = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    httpService.patch(`/api/accounts/${itemEdit._id}`, { body: itemEdit })
+    httpService
+      .patch(`/api/accounts/${itemEdit._id}`, { body: itemEdit })
       .then((data) => {
         setOpen(false);
         setItemEdit(null);
-        setIsReload(!isReload)
-      },
-      )
-  }
-
+        setIsReload(!isReload);
+      });
+  };
 
   const getListData = async () => {
     const response = await httpService.get("/api/accounts", {});
@@ -56,9 +55,7 @@ const HomeAccount = () => {
   };
 
   const deleteData = async (id) => {
-    const response = await httpService.delete(
-      `/api/accounts/${id}`
-    );
+    const response = await httpService.delete(`/api/accounts/${id}`);
   };
 
   const handledeleteData = (id) => {
@@ -87,33 +84,92 @@ const HomeAccount = () => {
           },
         }}
       >
-        <Fade style={{width:"420px" , height: "500px" , border: "0px" , borderRadius:"5px"}}  in={open}>
+        <Fade
+          style={{
+            width: "420px",
+            height: "500px",
+            border: "0px",
+            borderRadius: "5px",
+          }}
+          in={open}
+        >
           <Box sx={style}>
-          <button style={{margin: "0px"}} onClick={() => setOpen(false)}>x</button>
-          <div className="slog"><h1 className="dis">TÀI KHOẢN</h1></div> <br />
+            <button style={{ margin: "0px" }} onClick={() => setOpen(false)}>
+              x
+            </button>
+            <div className="slog">
+              <h1 className="dis">TÀI KHOẢN</h1>
+            </div>{" "}
+            <br />
             <form className="formedit" onSubmit={handleSubmit}>
               <label className="Boxname">TÀI KHOẢN:</label> <br />
-              <input className="inpedit" type="text" value={itemEdit?.username} onChange={e => setItemEdit({ ...itemEdit, username: e.target.value })} /><br />
-              <label className="Boxname">HỌ VÀ TÊN:</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.fullname} onChange={e => setItemEdit({ ...itemEdit, fullname: e.target.value })} /><br />
-              <label className="Boxname">NGÀY SINH:</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.dob} onChange={e => setItemEdit({ ...itemEdit, dob: e.target.value })} /><br />
-              <label className="Boxname">role:</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.role} onChange={e => setItemEdit({ ...itemEdit, role: e.target.value })} /><br />
-              <label className="Boxname">SỐ ĐIỆN THOẠI:</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.phone} onChange={e => setItemEdit({ ...itemEdit, phone: e.target.value })} /><br />
-              <button className="submitedit" type="submit">Edit</button>
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.username}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, username: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">HỌ VÀ TÊN:</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.fullname}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, fullname: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">NGÀY SINH:</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.dob}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, dob: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">role:</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.role}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, role: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">SỐ ĐIỆN THOẠI:</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.phone}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, phone: e.target.value })
+                }
+              />
+              <br />
+              <button className="submitedit" type="submit">
+                Edit
+              </button>
             </form>
           </Box>
         </Fade>
       </Modal>
       <div className="sumtable">
         <div className="menucreat">
-        <h4>TÀI KHOẢN</h4>
-        <h4>TÊN ĐẦY ĐỦ</h4>
-        <h4>NGÀY SINH</h4>
-        <h4>SỐ ĐIỆN THOẠI</h4>
-        <h4>CÀI ĐẶT</h4>
+          <h4>TÀI KHOẢN</h4>
+          <h4>TÊN ĐẦY ĐỦ</h4>
+          <h4>NGÀY SINH</h4>
+          <h4>SỐ ĐIỆN THOẠI</h4>
+          <h4>CÀI ĐẶT</h4>
         </div>
         {currentPageData && currentPageData.length > 0 && (
           <div className="accounts">
@@ -131,36 +187,36 @@ const HomeAccount = () => {
                 <div className="account_item">
                   <h4>{item.phone}</h4>
                 </div>
-                <div className="account_item2">
+                <div className="account_item">
                   <button
-                  className="delaccount"
+                    className="delaccount"
                     onClick={() => {
                       handledeleteData(item._id);
                     }}
-                  >XÓA
+                  >
+                    XÓA
                   </button>
                   <button
-                  className="editaccount"
+                    className="editaccount"
                     onClick={() => {
                       setItemEdit(item);
-                      setOpen(true)
+                      setOpen(true);
                     }}
-                  > 
+                  >
                     SỬA
                   </button>
                 </div>
-
               </div>
             ))}
           </div>
-          
         )}
         <div className="link2">
-          <Link className="Creataccounts" to="/Admin/CreatAccounts">Thêm Tài Khoản</Link>
-          
+          <Link className="Creataccounts" to="/Admin/CreatAccounts">
+            Thêm Tài Khoản
+          </Link>
         </div>
         <div>
-        <Sweetpagination
+          <Sweetpagination
             currentPageData={setCurrentPageData}
             getData={data}
             dataPerPage={5}

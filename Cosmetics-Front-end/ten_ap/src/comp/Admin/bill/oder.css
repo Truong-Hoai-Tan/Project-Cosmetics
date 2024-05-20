@@ -1,42 +1,54 @@
-.TableOder{
-    width: 98.9%;
+.wrapper-bill{
+    width: 100%;
     display: flex;
-    margin-left: 10px;
-    padding-left: 20px;
-    height: 60px;
-    padding: 0px;
+    color: white;
+    flex-direction: column;
+}
+.menu_oder2{
+    background-color: rgb(98, 47, 112);
+    font-size: 1.6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+.menu_oder2 >h4{
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid white;
+}
+.itemOder_get{
+    height: 45rem; 
+    border-top: none;
+}
+.TableOder{
+    width: 100%;
+    display: flex;
+    height: 7.5rem;
     background-color: white;
     border: 2px solid rgb(98, 47, 112);
     border-top: none;
+    color: black;
+    justify-content: center;
+    align-items: center;
 }
 .oder_item{
-    width: 245px;
-    text-align: center;
-    border-right: 2px solid rgb(98, 47, 112);
-}
-.oder_item>h4{
-    margin-top: 20px;
-}
-.menu_oder2{
-    width: 100%;
     display: flex;
-    margin-left: 10px;
-    padding-left: 20px; 
-    padding: 0px;
-    background-color: rgb(98, 47, 112);
-    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    border-right: 2px solid rgb(98, 47, 112);
+    font-size: 1.6rem;
+    gap: 2rem;
+    text-align: justify;
 }
-.menu_oder2 >h4{
-    width: 242px;
-    text-align: center;
-    border-right: 2px solid rgb(212, 205, 205);
-    
-}
+
 .detail{
     width: 100%;
-    margin: 10px;
+    margin-top: 10px;
     background-color: white;
-    padding: 10px;
 }
 .detail >h1{
     text-align: center;

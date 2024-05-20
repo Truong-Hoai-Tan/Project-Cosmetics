@@ -156,18 +156,22 @@ function ProductStatistics() {
         </div>
         <div className='bieudo'>
                 
-            <div className='item_bieudo'>
+            <div className='bieudo_item'>
             <img className='radius'
                 src="https://wpro.vn/wp-content/uploads/2020/10/bieu-do-cot-excel-bao-cao-ban-hang-1.png"
                 alt=""
               />
+            </div>
+            <div className='bieudo_item'>
             <img
             className='bieudo_item'
                 src="https://media.vneconomy.vn/w900/images/upload/2023/01/04/sapo-nhan-dinh-2023.png"
                 alt=""
               />
-              
             </div>
+            
+              
+
             <p className='Time_on'>{formattedDateTime}</p>
         </div>
         </div>

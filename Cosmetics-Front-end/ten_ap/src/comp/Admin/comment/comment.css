@@ -1,63 +1,59 @@
-.Sum_comment {
-    width: 98.9%;
+.tableComment{
+    width: 100%;
     display: flex;
-    margin-left: 10px;
-    padding-left: 20px;
-    height: 65px;
-    padding: 0px;
-    background-color: white;
-    border: 2px solid rgb(98, 47, 112);
-    border-top: none;
+    color: white;
+    flex-direction: column;
 }
-.delcomment{
-    position: absolute;
-    right: 30px;
-    background: none;
-    border: none;
-    margin-top: 30px;
+.tableComment_header{
+    background-color: rgb(98, 47, 112);
+    font-size: 1.6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+}
+.tableComment_header h4{
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid white;
 }
 .comments{
     height: 450px; 
     border-top: none;
 }
-.comment_item{
-    width: 237px;
-    text-align: center;
-    border-right: 2px solid rgb(98, 47, 112);
-}
-.comment_item > h4{
-    margin-top: 20px;
-    font-size: 16px;
-    width: 237px;
-}
-.tableComment{
-    background-color: rgb(98, 47, 112);
+ .Sum_comment {
     width: 100%;
     display: flex;
-    text-align: center;
-    color: white;
-    margin-left: 10px;
+    height: 6.5rem;
+    background-color: white;
+    border: 2px solid rgb(98, 47, 112);
+    border-top: none;
+    color: black;
+    justify-content: center;
+    align-items: center;
 }
-.tableComment>h4{
-    margin-top: 15px;
-    font-size: 16px;
-    width: 237px;
-    border-right: 2px solid rgb(212, 205, 205);
+.comment_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    border-right: 2px solid rgb(98, 47, 112);
+    font-size: 1.6rem;
 }
-.tableComment>h3{
-    margin-top: 15px;
-    font-size: 16px;
-    width: 237px;
-    font-weight: normal;
-}
+
 .delcomment{
-    margin-top: 13px;
-    background: none;
+    position: absolute;
+    border: none;
     background-color: rgb(255, 3, 3);
-    height: 35px;
-    width: 70px;
+    height: 3.5rem;
+    width: 7rem;
     border: none;
     font-weight: bold;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-}
+} 
+
+
+    

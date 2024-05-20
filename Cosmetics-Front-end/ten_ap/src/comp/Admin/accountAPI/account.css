@@ -1,52 +1,59 @@
-
 .sumtable{
     width: 100%;
-    margin-left: 10px;
-    padding: 0px;
+    display: flex;
+    color: white;
+    flex-direction: column;
 }
 .menucreat{
     background-color: rgb(98, 47, 112);
+    font-size: 1.6rem;
     width: 100%;
     display: flex;
-    text-align: center;
-    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
 }
 .menucreat>h4{
-    margin-top: 15px;
-    font-size: 16px;
-    width: 237px;
-    border-right: 2px solid rgb(212, 205, 205);
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.accounts{
+    height: 450px; 
+    border-top: none;
 }
 .tablemenu{
-    width: 98.9%;
+    width: 100%;
     display: flex;
+    height: 6.5rem;
+    background-color: white;
     border: 2px solid rgb(98, 47, 112);
     border-top: none;
-    height: 65px;
-    background-color: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
 }
 .account_item{
-    width: 237px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
     border-right: 2px solid rgb(98, 47, 112);
+    font-size: 1.6rem;
+    gap: 2rem;
 }
-.account_item2{
-    width: 200px;
-    text-align: center;
-    border: none;
-}
-.account_item >h4{
-    margin-top: 20px;
-    font-size: 16px;
-    width: 237px;
-}
+
 .Creataccounts{
     text-decoration: none;
     color: purple;
     font-weight: bold;
-     border: 1px solid purple;
-     padding: 3px;
-     border-radius: 5px;
+    border: 1px solid purple;
+    padding: .5rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    margin-left: 1rem;
 }
 .Creataccounts:hover{
     background-color: purple;
@@ -93,34 +100,25 @@
     text-shadow: 0px 0px 5px rgb(0, 170, 255);
 }
 .delaccount{
-    
-    position: absolute;
-    right: 30px;
     border: none;
-    background: none;
-}
-.accounts{
-    height: 450px;
-}
-.delaccount{
-    margin-top: 13px;
-    border: none;
-    background: none;
     background-color: rgb(255, 3, 3);
-    height: 35px;
-    width: 70px;
+    height: 3.5rem;
+    width: 7rem;
     border: none;
     font-weight: bold;
     color: rgb(255, 255, 255);
     border-radius: 5px;
+    cursor: pointer;
 }
+
 .editaccount{
-    margin-top: 13px;
-    height: 35px;
-    width: 60px;
+    border: none;
     background-color: rgb(0, 202, 0);
+    height: 3.5rem;
+    width: 7rem;
     border: none;
     font-weight: bold;
     color: rgb(255, 255, 255);
     border-radius: 5px;
+    cursor: pointer; 
 }

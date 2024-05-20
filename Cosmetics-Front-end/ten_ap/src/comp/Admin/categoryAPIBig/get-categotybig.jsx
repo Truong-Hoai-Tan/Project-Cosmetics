@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import httpService from "../../service/http.service";
-import './categoryBig.css';
+import "./categoryBig.css";
 import { Link, NavLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -19,8 +19,7 @@ const style = {
 };
 
 const HomeCateBig = () => {
-
-  const [categoryBig, setCategoryBig] = useState("")
+  const [categoryBig, setCategoryBig] = useState("");
   const [isReload, setIsReload] = useState(false);
   const [itemEdit, setItemEdit] = useState(null);
   const [open, setOpen] = React.useState(false);
@@ -31,25 +30,25 @@ const HomeCateBig = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    httpService.patch(`/api/categoryBig/${itemEdit._id}`, { body: itemEdit })
+    httpService
+      .patch(`/api/categoryBig/${itemEdit._id}`, { body: itemEdit })
       .then((data) => {
         setOpen(false);
         setItemEdit(null);
-        setIsReload(!isReload)
-      },
-      )
-  }
-  const handledelete =(id)=>{
-    httpService.delete(`/api/categoryBig/${id}`).then(data =>{
-      setIsReload(!isReload)
-    })
-  }
+        setIsReload(!isReload);
+      });
+  };
+  const handledelete = (id) => {
+    httpService.delete(`/api/categoryBig/${id}`).then((data) => {
+      setIsReload(!isReload);
+    });
+  };
   useEffect(() => {
-    httpService.get("/api/categoryBig").then(data => {
-      setCategoryBig(data.data)
-        setIsReload(!isReload)
-    })
-  }, [isReload])
+    httpService.get("/api/categoryBig").then((data) => {
+      setCategoryBig(data.data);
+      setIsReload(!isReload);
+    });
+  }, [isReload]);
   return (
     <>
       <Modal
@@ -65,55 +64,97 @@ const HomeCateBig = () => {
           },
         }}
       >
-        <Fade style={{ width: "420px", height: "500px", border: "0px", borderRadius: "5px" }} in={open}>
+        <Fade
+          style={{
+            width: "420px",
+            height: "500px",
+            border: "0px",
+            borderRadius: "5px",
+          }}
+          in={open}
+        >
           <Box sx={style}>
-            <button style={{ margin: "0px" }} onClick={() => setOpen(false)}>x</button>
-            <div className="slog"><h1 className="dis">DANH MỤC LỚN</h1></div> <br />
+            <button style={{ margin: "0px" }} onClick={() => setOpen(false)}>
+              x
+            </button>
+            <div className="slog">
+              <h1 className="dis">DANH MỤC LỚN</h1>
+            </div>{" "}
+            <br />
             <form className="formedit" onSubmit={handleSubmit}>
               <label className="Boxname">TÊN DANH MỤC</label> <br />
-              <input className="inpedit" type="text" value={itemEdit?.name} onChange={e => setItemEdit({ ...itemEdit, name: e.target.value })} /><br />
-              <label className="Boxname">ĐƯỜNG DẪN</label><br />
-              <input className="inpedit" type="text" value={itemEdit?.link} onChange={e => setItemEdit({ ...itemEdit, link: e.target.value })} /><br />
-              <button className="submitedit" type="submit">Edit</button>
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.name}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, name: e.target.value })
+                }
+              />
+              <br />
+              <label className="Boxname">ĐƯỜNG DẪN</label>
+              <br />
+              <input
+                className="inpedit"
+                type="text"
+                value={itemEdit?.link}
+                onChange={(e) =>
+                  setItemEdit({ ...itemEdit, link: e.target.value })
+                }
+              />
+              <br />
+              <button className="submitedit" type="submit">
+                Edit
+              </button>
             </form>
           </Box>
         </Fade>
-      </Modal> 
-      <div className="tableBig">
-        <h4>TÊN</h4>
-        <h5>ĐƯỜNG DẪN</h5>
-      </div>
-      {categoryBig && categoryBig.length > 0 && (
-        <div className="itemOder_get">
-          {categoryBig.map((item) => (
-            <div className="categoryBig" key={item._id}>
-            <div className="cateBig_item">
-            <h4>{item.name}</h4>
-            </div>
-            <div className="cateBig_item">
-            <h4>{item.link}</h4>
-            </div>
-            <div className="cateBig_item2">
-            <button className="edit_cate" onClick={() => handledelete(item._id)}>
-                      XÓA
-                      </button>
-                      <button 
-                      className="editCate" onClick={() => {
-                        setItemEdit(item);
-                        setOpen(true)
-                      }}>SỬA</button>
-            </div>
-            </div>
-          ))}
-          
+      </Modal>
+      <div className="wrapper-categorybig">
+        <div className="tableBig">
+          <h4>TÊN</h4>
+          <h4>ĐƯỜNG DẪN</h4>
+          <h4></h4>
         </div>
-      )}
+        {categoryBig && categoryBig.length > 0 && (
+          <div className="itemOder_get">
+            {categoryBig.map((item) => (
+              <div className="categoryBig" key={item._id}>
+                <div className="cateBig_item">
+                  <h4>{item.name}</h4>
+                </div>
+                <div className="cateBig_item">
+                  <h4>{item.link}</h4>
+                </div>
+                <div className="cateBig_item">
+                  <button
+                    className="del_cate"
+                    onClick={() => handledelete(item._id)}
+                  >
+                    XÓA
+                  </button>
+                  <button
+                    className="edit_cate"
+                    onClick={() => {
+                      setItemEdit(item);
+                      setOpen(true);
+                    }}
+                  >
+                    SỬA
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
       <div>
-      <br></br>
-        <Link className="CreatCate" to="/Admin/CreateCateBig">Thêm Đường Dẫn</Link>
+        <br></br>
+        <Link className="Creataccounts" to="/Admin/CreateCateBig">
+          Thêm Đường Dẫn
+        </Link>
       </div>
     </>
-  )
-
-}
-export default HomeCateBig
+  );
+};
+export default HomeCateBig;

@@ -1,69 +1,50 @@
-
 .SumAuth{
-    width: 100%;
-    height: 740px;
+    width: 100%; 
     background: linear-gradient(rgb(253, 234, 255), rgb(248, 181, 255));
-    font-family:Arial, Helvetica, sans-serif;
+    height: 70rem;
+    display: flex;
+    justify-content: center;
 }
 .login__form{
-    width: 320px;
-    background-color: white;
-    height: 400px;
-    position: absolute;
-    top: 150px;
-    right: 750px;
-    right: 580px;
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    background-color: rgb(255, 255, 255);
+    height: 43rem;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 2px gray;
-    padding: 5px;
-}
-.login__form h3{
-    margin:5px 0px 20px 50px;
-    color: red;
+    margin-top: 7rem;
 }
 .authImg{
     width: 200px;
     height: 100px;
-    margin-left: 60px;
+    margin-left: 80px;
 }
-.form__item{
-     margin-left: 45px;
-     margin-top: 10px;
+.login_form_item{
+    width: 100%;
+    margin: .2rem 0;
 }
-.form__item input{
-    width: 220px;
-    height: 20px;
-    border-radius: 10px;
+.login_form_item label{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.login_form_item h1{
+    text-align: center;
+    text-shadow: 0px 0px 4px rgb(0, 0, 0);
+    color: rgb(255, 0, 247);
+    padding-bottom: 1rem;
+}
+.login_form_item input{
+    width: 100%;
+    height: 3rem;
+    border-radius: .5rem;
     border: none;
     box-shadow: 0px 0px 2px rgb(170, 1, 182);
-    margin-top: 5px;
-    padding: 5px;
+    margin: .3rem 0;
+    font-size: 1.6rem;
 }
-.form__item label{
-    margin: 5px 5px 5px 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
-.authbutton{
-    width: 230px;
-    margin:15px 0px;
-    background-color: rgb(122, 0, 128);
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-    font-size: 12px;
-}
-.authbutton:hover{
-    background-color: rgb(69, 0, 86);
-    color: rgb(255, 255, 255);
-}
-.linkRegis{
-    text-align: center;
-    font-size: 13px;
-    color: gray;
-}
+
 .tan123{
     text-decoration: none;
     color: rgb(132, 0, 142);
@@ -75,4 +56,10 @@
 }
 ::placeholder{
     font-size: 13px;
+}
+.linkLogin{
+    color: gray;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 7rem;
 }

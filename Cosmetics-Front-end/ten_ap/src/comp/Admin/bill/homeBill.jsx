@@ -40,57 +40,60 @@ const HomeBill = () => {
     })
   }, [isReload])
   return (
-    <>
-      <div className="menu_oder2">
-        <h4>TÊN KHÁCH HÀNG</h4>
-        <h4>CHI TIẾT ĐƠN HÀNG</h4>
-        <h4>ĐỊA CHỈ</h4>
-        <h4>TÌNH TRẠNG</h4>
-        <h4>TRẠNG THÁI</h4> 
-      </div>
-      {currentPageData && currentPageData.length > 0 && (
-        <div className="itemOder_get">
-          {currentPageData.map((item) => (
-            <div className="TableOder" key={item._id}>
-            <div className="oder_item">
-            <h4>{item.customer_name}</h4>
+    <> 
+        <div className="wrapper-bill">
+          <div className="menu_oder2">
+            <h4>TÊN KHÁCH HÀNG</h4>
+            <h4>CHI TIẾT ĐƠN HÀNG</h4>
+            <h4>ĐỊA CHỈ</h4>
+            <h4>TÌNH TRẠNG</h4>
+            <h4>TRẠNG THÁI</h4> 
+          </div>
+          {currentPageData && currentPageData.length > 0 && (
+            <div className="itemOder_get">
+              {currentPageData.map((item) => (
+                <div className="TableOder" key={item._id}>
+                <div className="oder_item">
+                <h4>{item.customer_name}</h4>
+                </div>
+                <div className="oder_item">
+                <h4 onClick={() => handleClickProduct(item._id)}>Chi Tiết Đơn Hàng</h4>
+                </div>
+                <div className="oder_item">
+                <h4>{item.address}</h4>
+                </div>
+                <div className="oder_item">
+                <h4>{item.is_payment}</h4>
+                </div>
+                <div className="oder_item">
+                <h4>
+                    <select className="select_oder" value={item.is_payment} onChange={(e) => { handleUpdateStatusBill(e, item) }}>
+                      <option className="item_select" value={"Browsing"}>Đang Duyệt</option>
+                      <option value={"Confirm"}>Xác Nhận</option>
+                      <option value={"Success"}>Thành Công</option>
+                    </select>
+                    {/* <button
+                      className="del"
+                        onClick={() => {
+                          handledeleteData(item._id);
+                        }}
+                      >XÓA
+                      </button> */}
+                  </h4>
+                </div>
+                </div>
+              ))}
             </div>
-            <div className="oder_item">
-            <h4 onClick={() => handleClickProduct(item._id)}>Chi Tiết Đơn Hàng</h4>
-            </div>
-            <div className="oder_item">
-            <h4>{item.address}</h4>
-            </div>
-            <div className="oder_item">
-            <h4>{item.is_payment}</h4>
-            </div>
-            <div className="oder_item">
-            <h4>
-                <select className="select_oder" value={item.is_payment} onChange={(e) => { handleUpdateStatusBill(e, item) }}>
-                  <option className="item_select" value={"Browsing"}>Đang Duyệt</option>
-                  <option value={"Confirm"}>Xác Nhận</option>
-                  <option value={"Success"}>Thành Công</option>
-                </select>
-                {/* <button
-                  className="del"
-                    onClick={() => {
-                      handledeleteData(item._id);
-                    }}
-                  >XÓA
-                  </button> */}
-              </h4>
-            </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <Sweetpagination
-            currentPageData={setCurrentPageData}
-            getData={statistical}
-            dataPerPage={5}
-            navigation={true}
-            getStyle={"style-1"}
+          )}
+          <Sweetpagination
+                currentPageData={setCurrentPageData}
+                getData={statistical}
+                dataPerPage={5}
+                navigation={true}
+                getStyle={"style-1"}
           />
+        </div>
+    
     </>
   )
 
